@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Head data --> 
+    <%- include('../includes/head.ejs', {title: 'TLFleet || Vehicle Details'}) -%>
+    <%- include('../includes/appcss.ejs') -%>
+
+</head>
+
+
+<body class="fixed-left">
+
+    <!-- Begin page -->
+    <div id="wrapper">
+
+        <!-- Top Bar Start -->
+        <%- include('../includes/topbar.ejs') -%>
+        <!-- Top Bar End -->
+            
+        <!-- ========== Left Sidebar Start ========== -->
+        <%- include('../includes/sidenav.ejs'); -%>
+        <!-- Left Sidebar End -->
+
+
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="content-page">
+            <!-- Start content -->
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="top-detail mb-3 mx-0 card m-b-20 card-body text-xs-center">
+                        <div class="row ">
+                            <div class="col-md-9">
+                                <h3 class="name"> <a href="vehicle.html"><%= vehicle.vehicleName %></a> </h3>
+                                <p class="detail"> Car·2018 Toyota Prius·JTDKBRFU9J30593O7·6TRJ244</p>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="#"
+                                    class="btn btn-success btn-right btn-bordred waves-effect w-md waves-light m-b-5 ml-auto float-right link">
+                                    <i class="mdi mdi-border-color"></i>
+                                    Edit Vehicle</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card m-b-20 card-body">
+                                <div class="row">
+                                    <div class="col-lg-4 col-6 col-md-6">
+                                        <div class="stat">
+                                            <div class="stat-value"> N180</div>
+                                            <div class="stat-label"> Total Cost/Mile</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-6 col-md-6">
+                                        <div class="stat">
+                                            <div class="stat-value"> N10,900</div>
+                                            <div class="stat-label"> Fuel Cost</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-6 col-md-6">
+                                        <div class="stat">
+                                            <div class="stat-value"> N29,080</div>
+                                            <div class="stat-label"> Service Cost</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-6 col-md-6">
+                                        <div class="stat">
+                                            <div class="stat-value"> N15,000</div>
+                                            <div class="stat-label"> Other Cost</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-6 col-md-6">
+                                        <div class="stat">
+                                            <div class="stat-value"> N89,000</div>
+                                            <div class="stat-label"> Total Cost</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-6  col-md-6">
+                                        <div class="stat">
+                                            <div class="stat-value"> 130.9</div>
+                                            <div class="stat-label"> Mile/Day</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card m-b-20 card-body card-inverse card-primary text-xs-center">
+                                <div class="card-heading">
+                                    <h3 class="card-title">Vehicle Details</h3>
+                                    <a class="btn btn-default btn-sm btn-right link" href="#"><i
+                                            class="mdi mdi-pencil"></i>
+                                        Edit
+                                    </a>
+                                </div>
+                                <table class="table2">
+                                    <thead>
+                                        <tr>
+                                            <th class="one">Name</th>
+                                            <td class="two">1100 [2012 Toyota Hiace]</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="one">Region</th>
+                                            <td class="two">East</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="one">Operator</th>
+                                            <td class="two">John Doe</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="one">Type</th>
+                                            <td class="two">Bus</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="one">Status</th>
+                                            <td class="two">Active</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="one">VIN/SN</th>
+                                            <td class="two">JTDKBRFU9J30593O7</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="one">License Plate</th>
+                                            <td class="two">6TRJ244</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="one">Year</th>
+                                            <td class="two">2012</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="one">Make</th>
+                                            <td class="two">Toyota</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="one">Model</th>
+                                            <td class="two">Hiace</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="one">Color</th>
+                                            <td class="two">White</td>
+                                        </tr>
+
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- colstat-->
+
+                        <div class="col-md-6">
+                            <!-- Issues -->
+                            <div class="card m-b-20 card-body card-inverse card-primary text-xs-center">
+                                <div class="card-heading">
+                                    <h3 class="card-title">Open Issues</h3>
+                                </div>
+                                <hr>
+                                <% if(issue) { %>
+                                    <div class="row">
+                                        <div class="col-6 ">
+                                            <div class="stat">
+                                                <div class="stat-value">
+                                                    <a href="#">
+                                                        <div class="text-warning">
+                                                            1
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="stat-label">Open</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 ">
+                                            <div class="stat">
+                                                <div class="stat-value">
+                                                    <a href="#">
+                                                        <div class="text-subtle">
+                                                            0
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="stat-label">Overdue</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <h5 class="issue-header">
+                                        <%= issue.summary %>
+                                    </h5>
+                                    <p class="issue-details text-muted">
+                                        <%= issue.description %>
+                                    </p>
+                                <% } else { %>
+                                    <h5 class="issue-header"> No Active Issues </h5>
+                                <% } %>
+                            </div>
+
+                            <!-- Service reminders -->
+                            <div class="card m-b-20 card-body card-inverse card-primary text-xs-center">
+                                <div class="card-heading">
+                                    <h3 class="card-title">Service Reminders</h3>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-6 ">
+                                        <div class="stat">
+                                            <div class="stat-value">
+                                                <a href="#">
+                                                    <div class="text-subtle">
+                                                        0
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="stat-label">Overdue</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 ">
+                                        <div class="stat">
+                                            <div class="stat-value">
+                                                <a href="#">
+                                                    <div class="text-warning">
+                                                        2
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="stat-label">Due Soon</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+
+                                <div class="title text-warning">
+                                    Oil Change
+                                </div>
+                                <small>
+                                    <div class="issue-details">
+                                        Every 6 month(s) or 10,000 miles
+                                    </div>
+                                    <div class=" text-warning">
+                                        Due:Oct 14, 2019 · 21,278 mi
+                                    </div>
+                                </small><br>
+
+                                <div class="title text-warning">
+                                    Rotate Tyres
+                                </div>
+                                <small>
+                                    <div class="issue-details">
+                                        Every 6 month(s) or 10,000 miles
+                                    </div>
+                                    <div class=" text-warning">
+                                        Due:Oct 14, 2019 · 21,278 mi
+                                    </div>
+                                </small>
+
+                            </div><!-- Critical Faults -->
+
+                            <div class="card m-b-20 card-body card-inverse card-primary text-xs-center">
+                                <div class="card-heading">
+                                    <h3 class="card-title">Critical Faults</h3>
+                                </div>
+                                <hr>
+
+                                <h5 class="center">No Open or Pending Faults</h5>
+
+                            </div><!-- Critical Faults -->
+
+                        </div><!-- col-md-6 -->
+                    </div> <!-- row -->
+
+
+                </div> <!-- container -->
+
+            </div> <!-- content -->
+
+            <%- include('../includes/footer.ejs') %>
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Right content here -->
+        <!-- ============================================================== -->
+
+
+        <!-- Right Sidebar -->
+        <%- include('../includes/rightbar.ejs') %>
+        <!-- /Right-bar -->
+
+    </div>
+    <!-- END wrapper -->
+
+
+    <!-- Scripts -->
+    <%- include('../includes/footerscripts.ejs') %>
+
+</body>
+
+</html>

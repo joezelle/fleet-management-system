@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<head>
+    <!-- Head data -->
+    <%- include('../includes/head.ejs', {title: 'TLFleet || Issues'}) -%>
+
+    <link href="/assets/plugins/fileuploads/css/dropify.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Plugins css-->
+    <link href="/assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
+    <link href="/assets/plugins/multiselect/css/multi-select.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
+    <link href="/assets/plugins/switchery/switchery.min.css" rel="stylesheet" />
+    <link href="/assets/plugins/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
+    <link href="/assets/plugins/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+    <link href="/assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="/assets/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/plugins/timepicker/bootstrap-timepicker.min.css">
+    <link rel="stylesheet" href="/assets/scss/_variables.scss">
+
+    <%- include('../includes/appcss.ejs') -%>
+
+    <!-- Font Awesome Icons -->
+    <!-- Offline -->
+    <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css">
+    <!-- Online -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css' />
+
+    <!-- Font Family -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
+        rel="stylesheet" />
+
+    <script src="/assets/js/modernizr.min.js"></script>
+    <style>
+        th.delete {
+            width: 5%;
+        }
+    </style>
+
+</head>
+
+<body class="fixed-left">
+
+    <!-- Begin page -->
+    <div id="wrapper">
+
+        <!-- Top Bar Start -->
+        <%- include('../includes/topbar.ejs') -%>
+        <!-- Top Bar End -->
+
+        <!-- ========= = Left Sidebar Start ========= = -->
+        <%- include('../includes/sidenav.ejs') -%>
+        <!-- Left Sidebar End -->
+
+
+
+        <!-- ============================================================= = -->
+        <!-- Start right Content here -->
+        <!-- ============================================================= = -->
+        <div class="content-page">
+            <!-- Start content -->
+            <div class="content ">
+                <div class="container-fluid px-0">
+                    <div class="row">
+                        <div class="col-md-12 px-0">
+                            <nav class="navbar navbar-expand bg-light">
+                                <a class="navbar-brand mr-0" href="/issue/all">Issues&nbsp;</a>
+                                <h4>/Edit Issue</h4>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <form class="form-inline my-2 my-lg-0 ml-auto">
+                                        <a class="btn btn-outline-primary my-2 my-sm-0" href="/issue/all">Cancel</a>
+                                    </form>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3 mb-1 py-0 mx-5">
+                        <p class="d-inline">Issue Details for <%= issue.vehicle.vehicleName %></p>
+                    </div>
+                    <div class="row mx-5 card mb-3">
+                        <form class="form-group px-4 my-4" action="./<%= issue._id %>?_method=PUT" method="POST" id="issueForm">
+                            <input type="hidden" name="_method" value="PUT">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-1 pr-0 mr-0">
+                                        <label for="">Vehicle</label>
+                                    </div>
+                                    <div class="col-md-10 px-0 mx-0">
+
+                                        <select name="vehicle" id="vehicle" class="form-control" required>
+                                            <option value="">Choose a Vehicle</option>
+                                            <% vehicles.forEach(vehicle => { %>
+                                                <option value="<%= vehicle._id %>"> <%= vehicle.vehicleName %> </option>
+                                            <% }) %>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!--row-->
+                            </div>
+                            <!--form-group-->
+                            <hr class="hr-form">
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <label for="exampleInputEmail1" class="align-middle px-0">Date <span
+                                                style="color: red; font-weight: bold;">*</span></label>
+                                    </div>
+                                    <div class="col-md-3 px-0">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control"
+                                                id="datepicker" name="date" value="<%= issue.date %>" required>
+                                            <div class="input-group-append">
+                                                <span class="input-group-text"><i class="ti-calendar"></i></span>
+                                            </div>
+                                        </div><!-- input-group -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="hr-form">
+
+                            <!-- Summary -->
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-1 pr-0 mr-0">
+                                        <label for="">Summary</label>
+                                    </div>
+                                    <div class="col-md-10 px-0 mx-0">
+                                        <input class="form-control" type="text"
+                                            placeholder="Summarize the issue in few words" name="summary" maxlength="20" id="summary" value="<%= issue.summary %>">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="hr-form">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <label for="exampleInputEmail1" class="px-0">Description<span
+                                                style="color: red; font-weight: bold;">*</span>
+                                    </div>
+                                    <div class="col-md-10 px-0 mx-0">
+                                        <textarea rows="4" class="form-control" name="description" maxlength="230" id="description" required></textarea>
+                                    </div>
+                                    <p class="d-inline middle-align vendor text-muted">
+                                        A detailed description of the issue.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Labels -->
+                            <div class="form-group mb-5">
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <label for="exampleInputEmail1" class="align-middle px-0">Priority<span
+                                                style="color: red; font-weight: bold;">*</span>
+                                    </div>
+                                    <div class="col-md-10 px-0 mx-0">
+                                        <select name="priority" id="issuePriority" class="form-control" required>
+                                            <option>Choose issue priority</option>
+                                            <option>Not Urgent</option>
+                                            <option>Urgent</option>
+                                            <option>Severe</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="hr-form">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <label for="exampleInputEmail1" class="align-middle px-0">Operator<span
+                                                style="color: red; font-weight: bold;">*</span>
+                                    </div>
+                                    <div class="col-md-10 px-0 mx-0">
+                                        <select name="operator" id="vehicleOperator" class="form-control" required>
+                                            <option>Select vehicle operator</option>
+                                            <% operators.forEach(operator => { %>
+                                            <option><%= operator.firstname%> <%= operator.lastname %></option>
+                                            <% }) %>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1">
+
+                                </div>
+                                <div class="mt-3">
+                                    <button type="submit" class="btn btn-sm btn-success waves-effect w-md waves-light">Save &
+                                        Update Issue
+                                    </button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- container -->
+
+        </div> <!-- content -->
+
+        <!-- Footer -->
+        <%- include('../includes/footer.ejs') %>
+
+
+        <!-- ============================================================= = -->
+        <!-- End Right content here -->
+        <!-- ============================================================= = -->
+
+        <!-- Right Sidebar -->
+        <%- include('../includes/rightbar.ejs') -%>
+        <!-- /Right-bar -->
+
+    </div>
+    <!-- END wrapper -->
+
+
+    <!-- Scripts -->
+    <%- include('../includes/footerscripts.ejs') %>
+
+</body>
+
+</html>

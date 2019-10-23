@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Head data --> 
+    <%- include('../includes/head.ejs', {title: 'TLFleet || Operators'}) -%>
+    <%- include('../includes/appcss.ejs') -%>
+
+  <style>
+    .right-align-column {
+      text-align: right;
+    }
+
+    .right-button {
+      float: right
+    }
+
+    .require {
+      color: red;
+    }
+
+    .button {
+      border-radius: 4px;
+      padding: 5px 15px;
+    }
+  </style>
+</head>
+
+
+<body class="fixed-left">
+
+  <!-- Top Bar Start -->
+  <%- include('../includes/topbar.ejs') -%>
+  <!-- Top Bar End -->
+      
+  <!-- ========== Left Sidebar Start ========== -->
+      <%- include('../includes/sidenav.ejs'); -%>
+  <!-- Left Sidebar End -->
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="content-page">
+      <!-- Start content -->
+      <div class="content px-0 ">
+        <div class="container-fluid px-0">
+
+          <nav class="navbar navbar-expand bg-light">
+            <a class="navbar-brand mr-0" href="#">Add Operator&nbsp;</a>
+
+            <ul class="nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/operator/all">Cancel</a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="col-xl-12 m-t-20">
+            <div class="card-box">
+
+              <h4 class="header-title m-t-0 m-b-30">Operator Details</h4>
+
+              <form class="form-horizontal" action="/add-operator" method="POST" role="form">
+                <div class="form-group row">
+                  <label for="firstname" class="col-sm-4 col-form-label right-align-column">First name <span
+                      class="require">*</span></label>
+                  <div class="col-sm-7">
+                    <input type="text" required="" class="form-control" name="firstname" placeholder="first name">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="lastname" class="col-sm-4 col-form-label right-align-column">Last name <span
+                      class="require">*</span></label>
+                  <div class="col-sm-7">
+                    <input type="text" required="" class="form-control" name="lastname" placeholder="last name">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="email" class="col-sm-4 col-form-label right-align-column">Email <span
+                      class="require">*</span></label>
+                  <div class="col-sm-7">
+                    <input type="email" required="" class="form-control" name="email" placeholder="email">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="gender" class="col-sm-4 col-form-label right-align-column">Gender </label>
+                  <div class="col-sm-7">
+                    <select class="form-control" name="gender">
+                      <option>Choose a gender</option>
+                      <option>Female</option>
+                      <option>Male</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="Phone Number" class="col-sm-4 col-form-label right-align-column">Phone Number <span
+                      class="require">*</span></label>
+                  <div class="col-sm-7">
+                    <input type="text" required="" class="form-control" name="number" placeholder="phone number">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="Phone Number" class="col-sm-4 col-form-label right-align-column">Driver ID<span
+                      class="require">*</span></label>
+                  <div class="col-sm-7">
+                    <input type="text" required="" class="form-control" name="driverID" placeholder="Driver ID">
+                  </div>
+                </div>
+
+                <hr class="pt-1 pb-1">
+
+                <div class="form-group ">
+                  <div class="col-sm-12">
+                    <button type="submit"
+                      class="btn btn-primary waves-effect waves-light m-l-5 right-button button">Save</button>
+
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div> <!-- container -->
+
+      </div> <!-- content -->
+
+      <!-- Footer -->
+      <%- include('../includes/footer.ejs') %>
+
+    </div>
+
+
+    <!-- ============================================================== -->
+    <!-- End Right content here -->
+    <!-- ============================================================== -->
+
+
+    <!-- Right Sidebar -->
+      <%- include('../includes/rightbar.ejs') %>
+    <!-- /Right-bar -->
+
+  </div>
+  <!-- END wrapper -->
+
+  <!-- Scripts -->
+  <%- include('../includes/footerscripts.ejs') %>
+
+</body>
+
+</html>

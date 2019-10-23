@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Head data -->
+    <%- include('./includes/head.ejs', {title: 'TLFleet || Dashboard'}) -%>
+
+    <%- include('./includes/appcss.ejs') -%>
+
+    <style>
+        #mapDiv {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+
+
+<body class="fixed-left">
+
+    <!-- Begin page -->
+    <div id="wrapper">
+
+        <!-- Top Bar Start -->
+        <%- include('./includes/topbar.ejs') -%>
+        <!-- Top Bar End -->
+
+        <!-- ========= = Left Sidebar Start ========= = -->
+        <%- include('./includes/sidenav.ejs') -%>
+        <!-- Left Sidebar End -->
+
+
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="content-page">
+            <!-- Start content -->
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-9 col-md-10">
+                            <div id="mapDiv"></div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-2 mt-5">
+                            <div class="card-box widget-user">
+                                <div class="text-center">
+                                    <h2 class="text-custom" data-plugin="counterup">6599</h2>
+                                    <h5>Active drivers</h5>
+                                </div>
+                            </div>
+
+                            <div class="card-box widget-user">
+                                <div class="text-center">
+                                    <h2 class="text-custom" data-plugin="counterup">6599</h2>
+                                    <h5>Active Trucks</h5>
+                                </div>
+                            </div>
+
+                            <div class="card-box widget-user">
+                                <div class="text-center">
+                                    <h2 class="text-custom" data-plugin="counterup">6599</h2>
+                                    <h5>Active Buses</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- container -->
+
+            </div> <!-- content -->
+
+            <!-- Footer -->
+        <%- include('./includes/footer.ejs') -%>
+
+        </div>
+
+
+        <!-- ============================================================== -->
+        <!-- End Right content here -->
+        <!-- ============================================================== -->
+
+
+        <!-- Right Sidebar -->
+        <%- include('./includes/rightbar.ejs') -%>
+        <!-- /Right-bar -->
+
+    </div>
+    <!-- END wrapper -->
+
+    <%- include('./includes/footerscripts.ejs') -%>
+    
+    <script src="/assets/js/map.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgknwI29RzE-7wLX_tQjbYTmnEtlw0BVs&callback=initMap"></script>
+
+</body>
+
+</html>

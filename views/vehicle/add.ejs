@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Head data --> 
+    <%- include('../includes/head.ejs', {title: 'TLFleet || Vehicles'}) -%>
+    <%- include('../includes/appcss.ejs') -%>
+
+    <style>
+        ul.breadcrumb {
+            padding: 10px 16px;
+            list-style: none;
+            /* background-color: #eee; */
+        }
+
+        ul.breadcrumb li {
+            display: inline;
+            font-size: 18px;
+        }
+
+        ul.breadcrumb li+li:before {
+            padding: 8px;
+            color: black;
+            content: "/\00a0";
+        }
+
+        ul.breadcrumb li a {
+            color: #0275d8;
+            text-decoration: none;
+        }
+
+        ul.breadcrumb li a:hover {
+            color: #01447e;
+            text-decoration: underline;
+        }
+    </style>
+
+    <script src="/assets/js/modernizr.min.js"></script>
+
+</head>
+
+
+<body class="fixed-left">
+
+    <!-- Begin page -->
+    <div id="wrapper">
+
+        <!-- Top Bar Start -->
+        <%- include('../includes/topbar.ejs') -%>
+        <!-- Top Bar End -->
+            
+        <!-- ========== Left Sidebar Start ========== -->
+        <%- include('../includes/sidenav.ejs'); -%>
+        <!-- Left Sidebar End -->
+
+
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="content-page">
+            <!-- Start content -->
+            <div class="content">
+                <div class="container-fluid px-0">
+                    <div class="row">
+                        <div class="col-md-12 px-0">
+                            <nav class="navbar navbar-expand bg-light">
+                                <ul class="breadcrumb mb-0">
+                                    <li><a href="/vehicle/all">Vehicles list</a></li>
+                                    <li>New Vehicle</li>
+                                </ul>
+
+
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <form class="form-inline my-2 my-lg-0 ml-auto" action="service-history.html"
+                                        method="POST">
+                                        <a class="btn btn-outline-primary my-2 my-sm-0" href="/vehicle/all">Cancel</a>
+                                    </form>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3 mb-1 py-0 mx-5">
+                        <p class="d-inline">Identification</p>
+                    </div>
+                    <div class="row mx-5 card mb-3">
+                        <form class="px-4 my-4" action="/add-vehicle" method="POST">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-1 p-0 m-0">
+                                        <label for="details" class="m-0">Details</label>
+                                    </div>
+                                </div>
+                                <!--row-->
+                                <hr class="hr-form">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <label for="name" class="align-middle px-0">
+                                                <h4>Vehicle Name</h4>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" name="vehicleName" class="form-control"
+                                                placeholder="Please Select">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <label for="plate" class="align-middle px-0">
+                                                <h4>License Plate</h4>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" name="licensePlate"
+                                                placeholder="Please Select">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <label for="vin" class="align-middle px-0">
+                                                <h4>VIN</h4>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" name="vin" class="form-control"
+                                                placeholder="Please Select">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <label for="type" class="align-middle px-0">
+                                                <h4>Type</h4>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select class="form-control" name="type">
+                                                <option>Car</option>
+                                                <option>Bus</option>
+                                                <option>Semi-Truck</option>
+                                                <option>Trailer</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <label for="exampleInputEmail1" class="align-middle px-0">
+                                                <h4>Year</h4>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" name="year" class="form-control"
+                                                placeholder="Please Select">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <label for="make" class="align-middle px-0">
+                                                <h4>Make</h4>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select class="form-control" name="make">
+                                                <option>Bugatti</option>
+                                                <option>Toyota</option>
+                                                <option>BMW</option>
+                                                <option>Bentley</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <label for="model" class="align-middle px-0">
+                                                <h4>Model</h4>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select class="form-control" name="model">
+                                                <option>Express-Cargo</option>
+                                                <option>Prius</option>
+                                                <option>Reefeer</option>
+                                                <option>Trailer</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <label for="color" class="align-middle px-0">
+                                                <h4>Color</h4>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="text" name="color" class="form-control"
+                                                placeholder="Please Select">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- footer buttons -->
+
+                                <a href="/vehicle/all"
+                                    class="btn btn-sm btn-outline-secondary waves-effect w-md waves-light mr-2 mr-auto">
+                                    Cancel
+                                </a>
+                                <button type="submit"
+                                    class="btn btn-sm btn-outline-secondary waves-effect w-md waves-light mr-2 mr-auto">
+                                    Save Vehicle
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+
+                </div> <!-- container -->
+
+            </div> <!-- content -->
+
+            <!-- Footer -->
+            <%- include('../includes/footer.ejs') %>
+
+        </div>
+
+
+        <!-- ============================================================== -->
+        <!-- End Right content here -->
+        <!-- ============================================================== -->
+
+
+        <!-- Right Sidebar -->
+        <%- include('../includes/rightbar.ejs') %>
+        <!-- /Right-bar -->
+    </div>
+    <!-- END wrapper -->
+
+
+    <!-- Scripts -->
+    <%- include('../includes/footerscripts.ejs') %>
+</body>
+
+</html>

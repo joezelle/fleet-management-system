@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Head data --> 
+  <%- include('../includes/head.ejs', {title: 'TLFleet || Operators'}) -%>
+  <%- include('../includes/appcss.ejs') -%>
+  <link href="/assets/css/mystyle.css" rel="stylesheet" type="text/css" />
+
+  <script src="/assets/js/modernizr.min.js"></script>
+  <style>
+    th.delete {
+      width: 5%;
+    }
+  </style>
+
+</head>
+
+
+<body class="fixed-left">
+
+  <!-- Begin page -->
+  <div id="wrapper">
+
+    <!-- Top Bar Start -->
+    <%- include('../includes/topbar.ejs') -%>
+    <!-- Top Bar End -->
+        
+    <!-- ========== Left Sidebar Start ========== -->
+        <%- include('../includes/sidenav.ejs'); -%>
+    <!-- Left Sidebar End -->
+
+
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="content-page">
+      <!-- Start content -->
+      <div class="content px-0">
+        <div class="container-fluid px-0">
+
+          <nav class="navbar navbar-expand bg-light">
+            <h2>Operators</h3>
+
+              <ul class="nav ml-auto">
+
+                <li class="nav-item">
+                  <a class="nav-link btn btn-primary button" href="./add">Add New Operator</a>
+                </li>
+              </ul>
+          </nav>
+
+          <!--row -->
+          <div class="row">
+            <div class="col-md-12 ">
+              <div class="tab-content">
+                <div class="card-box tab-pane active" id="all">
+                  <table class="table table-hover ">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Driver ID</th>
+                        <th>Phone Number</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                        <th class="delete"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% operators.forEach((operator) => { %>
+                      <tr>
+                        <td><%= operator.firstname %> <%=operator.lastname %></td>
+                        <td><%= operator.driverID %></td>
+                        <td><%= operator.number %></td>
+                        <td><%= operator.email %></td>
+                        <td><%= operator.gender %></td>
+                        <td><a href='./edit/<%= operator._id %>'>Edit </a></td>
+                        <td><a href='./all/<%= operator._id %>'>Delete </a></td>
+                      </tr>
+                      <% }) %>
+                    </tbody>
+                  </table>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!--row -->
+
+
+        </div> <!-- container -->
+
+      </div> <!-- content -->
+
+      <!-- Footer -->
+      <%- include('../includes/footer.ejs') %>
+
+    </div>
+
+
+    <!-- ============================================================== -->
+    <!-- End Right content here -->
+    <!-- ============================================================== -->
+
+
+    <!-- Right Sidebar -->
+        <%- include('../includes/rightbar.ejs') %>
+    <!-- /Right-bar -->
+
+  </div>
+  <!-- END wrapper -->
+
+
+  <!-- Scripts -->
+  <%- include('../includes/footerscripts.ejs') %>
+
+</body>
+
+</html>

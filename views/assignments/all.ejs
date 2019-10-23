@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<head>
+    <!-- Head data -->
+    <%- include('../includes/head.ejs', {title: 'TLFleet || Add Assignment'}) -%>
+
+    <link href="/assets/plugins/fileuploads/css/dropify.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Plugins css-->
+    <link href="/assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
+    <link href="/assets/plugins/multiselect/css/multi-select.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
+    <link href="/assets/plugins/switchery/switchery.min.css" rel="stylesheet" />
+    <link href="/assets/plugins/timepicker/bootstrap-timepicker.min.css" rel="stylesheet" />
+    <link href="/assets/plugins/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css" rel="stylesheet" />
+    <link href="/assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <link href="/assets/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/plugins/timepicker/bootstrap-timepicker.min.css" />
+    <link rel="stylesheet" href="/assets/scss/_variables.scss" />
+
+    <%- include('../includes/appcss.ejs') -%>
+
+    <!-- Font Awesome Icons -->
+    <!-- Offline -->
+    <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css" />
+    <!-- Online -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css" />
+
+    <!-- Font Family -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet" />
+
+    <script src="/assets/js/modernizr.min.js"></script>
+    <style>
+        th.delete {
+            width: 5%;
+        }
+    </style>
+</head>
+
+<body class="fixed-left">
+    <!-- Begin page -->
+    <div id="wrapper">
+        <!-- Top Bar Start -->
+        <%- include('../includes/topbar.ejs') -%>
+        <!-- Top Bar End -->
+
+        <!-- ========= = Left Sidebar Start ========= = -->
+        <%- include('../includes/sidenav.ejs') -%>
+        <!-- Left Sidebar End -->
+
+        <!-- ============================================================= = -->
+        <!-- Start right Content here -->
+        <!-- ============================================================= = -->
+        <div class="content-page">
+            <!-- Start content -->
+            <div class="content px-0">
+                <div class="container-fluid px-0">
+                    <nav class="navbar navbar-expand bg-light">
+                        <h4>Assignments</h4>
+
+                        <ul class="nav ml-auto">
+                            <li class="nav-item">
+                                <a class="btn btn btn-primary button" href="/assignment/add">Add New Assignments</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <!--row -->
+          <div class="row">
+            <div class="col-md-12 ">
+              <div class="tab-content">
+                <div class="card tab-pane active" id="all">
+                  <table class="table table-hover ">
+                    <thead>
+                      <tr>
+                        <th>Vehicle</th>
+                        <th>Operator</th>
+                        <th>Start date</th>
+                        <th>End date</th>
+                        <th>Trip Deatils</th>
+                        <th class="delete"></th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <% assignments.forEach(assignment => { %>
+                      <tr>
+                        <td>
+                          <%= assignments.vehicle.vehicleName %>
+                        </td>
+                        <td>
+                          <%= assignments.operator %>
+                        </td>
+                        <td>
+                          <%= assignments.startDate %>
+                        </td>
+                        <td>
+                          <%= assignments.endDate %>
+                        </td>
+                        <td>
+                          <%= assignments.tripDetails %>
+                        </td>
+                        <td class="delete"><a href="#">Delete</a></td>
+                                </tr>
+                                <% }) %>
+                                    </tbody>
+                                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--row -->
+    </div>
+    <!-- container -->
+    </div>
+    <!-- content -->
+
+        <%- include('../includes/footer.ejs') -%>
+    </div>
+
+    <!-- ============================================================= = -->
+    <!-- End Right content here -->
+    <!-- ============================================================= = -->
+
+        <!-- Right Sidebar -->
+        <%- include('../includes/rightbar.ejs') -%>
+        <!-- /Right-bar -->
+    </div>
+    <!-- END wrapper -->
+
+    <%- include('../includes/footerscripts.ejs') -%>
+</body>
